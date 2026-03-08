@@ -156,17 +156,14 @@ h2.sh i{font-style:italic;font-weight:300;color:var(--blue)}
 /* ══════════════════════════════════════
    PROJECTS
 ══════════════════════════════════════ */
-.proj-layout{display:flex;flex-direction:column;gap:2px;background:var(--rule);border:1px solid var(--rule)}
-.proj-row-top{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;background:var(--rule);gap:0}
-.proj-divider-v{background:var(--rule)}
-
-.proj-featured{background:var(--hero-bg);padding:3.5rem;display:flex;flex-direction:column;gap:1.2rem;position:relative;overflow:hidden;transition:background .25s}
+.proj-layout{display:grid;grid-template-columns:42% 58%;grid-template-rows:1fr 1fr auto;border:1px solid var(--rule);gap:1px;background:var(--rule)}
+.proj-featured{grid-column:1;grid-row:1/3;background:var(--hero-bg);padding:3.5rem;display:flex;flex-direction:column;gap:1.2rem;position:relative;overflow:hidden;transition:background .25s}
 .proj-featured::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 10%,rgba(47,111,235,.12),transparent 65%);pointer-events:none}
 .proj-featured:hover{background:#192d4e}
 .proj-featured:hover .proj-link-arr{transform:translateX(5px)}
 
-.proj-small{background:var(--bg-card);padding:2.5rem 2.8rem;display:flex;flex-direction:column;gap:.9rem;transition:background .22s,transform .22s var(--ease)}
-.proj-small:hover{background:var(--bg-2);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.06)}
+.proj-small{grid-column:2;background:var(--bg-card);padding:2.2rem 2.5rem;display:flex;flex-direction:column;gap:.85rem;transition:background .22s,transform .22s var(--ease)}
+.proj-small:hover{background:var(--bg-2);transform:translateX(-2px);box-shadow:-6px 0 20px rgba(0,0,0,.04)}
 
 .proj-type{font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
 .proj-featured .proj-type{color:var(--blue-2)}
@@ -193,8 +190,8 @@ h2.sh i{font-style:italic;font-weight:300;color:var(--blue)}
 /* ══════════════════════════════════════
    SKILLS
 ══════════════════════════════════════ */
-.skills-wrap{display:grid;grid-template-columns:1fr 320px;gap:4.5rem;align-items:start}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 3rem}
+.skills-wrap{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem 2.5rem}
 .sk-label{font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.85rem;display:block}
 .sk-chips{display:flex;flex-wrap:wrap;gap:.4rem}
 .chip{font-size:.8rem;color:var(--ink-2);border:1px solid var(--rule);border-radius:2px;padding:.28rem .8rem;background:var(--bg-card);transition:all .18s var(--ease);cursor:default}
@@ -338,53 +335,49 @@ footer{background:var(--hero-bg);border-top:1px solid rgba(237,234,228,.07);padd
       <h2 class="sh">Selected <i>Projects</i></h2>
     </div>
     <div class="proj-layout">
-      <div class="proj-row-top">
-        <!-- Featured -->
-        <div class="proj-featured sr">
-          <p class="proj-type">LLM · NLP · In Progress</p>
-          <div class="impact-badge">Multi-model pipeline · 100K+ posts</div>
-          <h3 class="proj-title">Mental Health LLM Classification System</h3>
-          <p class="proj-desc">Multi-LLM pipeline for 7 mental-health categories using Llama-3.3-70B, Kimi-K2-Instruct, GPT-OSS-120B, and Gemini 2.5-Pro. Weak-supervision ensemble voting with confidence scores + forced-label prompts to reduce misclassification. Preprocessing for 100K+ Reddit/HuggingFace posts — reproducible experiment framework used weekly by founding team.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">Python</span><span class="proj-tag">LLMs</span>
-            <span class="proj-tag">Prompt Engineering</span><span class="proj-tag">Groq</span>
-            <span class="proj-tag">Gemini</span><span class="proj-tag">Ensemble Voting</span>
-          </div>
-          <a href="https://github.com/Ella0921" target="_blank" class="proj-link">View on GitHub <span class="proj-link-arr">→</span></a>
+      <!-- FEATURED — left col, spans 2 rows -->
+      <div class="proj-featured sr">
+        <p class="proj-type">LLM · NLP · In Progress</p>
+        <div class="impact-badge">Multi-model pipeline · 100K+ posts</div>
+        <h3 class="proj-title">Mental Health LLM Classification System</h3>
+        <p class="proj-desc">Multi-LLM pipeline for 7 mental-health categories using Llama-3.3-70B, Kimi-K2-Instruct, GPT-OSS-120B, and Gemini 2.5-Pro. Weak-supervision ensemble voting with confidence scores + forced-label prompts to reduce misclassification. Preprocessing for 100K+ Reddit/HuggingFace posts — reproducible experiment framework used weekly by founding team.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span><span class="proj-tag">LLMs</span>
+          <span class="proj-tag">Prompt Engineering</span><span class="proj-tag">Groq</span>
+          <span class="proj-tag">Gemini</span><span class="proj-tag">Ensemble Voting</span>
         </div>
-        <div class="proj-divider-v"></div>
-        <!-- Small 1 -->
-        <div class="proj-small sr sd1">
-          <p class="proj-type">ML · Experimental Design</p>
-          <div class="impact-badge" style="background:var(--blue-bg);border-color:transparent;color:var(--blue)">60% fewer experiment combinations</div>
-          <h3 class="proj-title">A/B Testing Optimization with MLP + DOE</h3>
-          <p class="proj-desc">DOE-driven MLP framework reducing experimental combinations by 60%, achieving 7% F1-score improvement. Co-authored methodology under Prof. Ahn at CUHK.</p>
-          <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">MATLAB</span><span class="proj-tag">Deep Learning</span><span class="proj-tag">DOE</span></div>
-          <a href="https://github.com/Ella0921" target="_blank" class="proj-link">View on GitHub <span class="proj-link-arr">→</span></a>
-        </div>
-        <div class="proj-divider-v"></div>
-        <!-- Small 2 -->
-        <div class="proj-small sr sd2">
-          <p class="proj-type">Healthcare ML</p>
-          <div class="impact-badge" style="background:var(--blue-bg);border-color:transparent;color:var(--blue)">AUROC 0.822 · 80.66% accuracy</div>
-          <h3 class="proj-title">ICU Extubation Prediction</h3>
-          <p class="proj-desc">ML classifier predicting ICU extubation readiness on MIMIC-IV time-series clinical data. Full extraction pipeline with SHAP analysis for interpretability.</p>
-          <div class="proj-tags"><span class="proj-tag">Scikit-learn</span><span class="proj-tag">SQL</span><span class="proj-tag">SHAP</span><span class="proj-tag">MIMIC-IV</span></div>
-          <a href="https://github.com/Ella0921" target="_blank" class="proj-link">View on GitHub <span class="proj-link-arr">→</span></a>
-        </div>
+        <a href="https://github.com/Ella0921" target="_blank" class="proj-link">View on GitHub <span class="proj-link-arr">→</span></a>
       </div>
-      <!-- Wide row -->
-      <div class="proj-wide sr">
+      <!-- SMALL 1 — right col, row 1 -->
+      <div class="proj-small sr sd1">
+        <p class="proj-type">ML · Experimental Design</p>
+        <div class="impact-badge" style="background:var(--blue-bg);border-color:transparent;color:var(--blue)">60% fewer experiment combinations</div>
+        <h3 class="proj-title">A/B Testing Optimization with MLP + DOE</h3>
+        <p class="proj-desc">DOE-driven MLP framework reducing experimental combinations by 60%, achieving 7% F1-score improvement. Co-authored methodology under Prof. Ahn at CUHK.</p>
+        <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">MATLAB</span><span class="proj-tag">Deep Learning</span><span class="proj-tag">DOE</span></div>
+        <a href="https://github.com/Ella0921" target="_blank" class="proj-link">View on GitHub <span class="proj-link-arr">→</span></a>
+      </div>
+      <!-- SMALL 2 — right col, row 2 -->
+      <div class="proj-small sr sd2">
+        <p class="proj-type">Healthcare ML</p>
+        <div class="impact-badge" style="background:var(--blue-bg);border-color:transparent;color:var(--blue)">AUROC 0.822 · 80.66% accuracy</div>
+        <h3 class="proj-title">ICU Extubation Prediction</h3>
+        <p class="proj-desc">ML classifier predicting ICU extubation readiness on MIMIC-IV time-series clinical data. Full extraction pipeline with SHAP analysis for interpretability.</p>
+        <div class="proj-tags"><span class="proj-tag">Scikit-learn</span><span class="proj-tag">SQL</span><span class="proj-tag">SHAP</span><span class="proj-tag">MIMIC-IV</span></div>
+        <a href="https://github.com/Ella0921" target="_blank" class="proj-link">View on GitHub <span class="proj-link-arr">→</span></a>
+      </div>
+      <!-- WIDE ROW — spans full width -->
+      <div class="proj-wide sr" style="grid-column:1/-1">
         <div class="proj-wide-inner">
-          <div style="flex:1;min-width:220px">
+          <div style="flex:0 0 220px">
             <p class="proj-type" style="margin-bottom:.5rem">NLP · Text Mining · Research</p>
             <h3 class="proj-title">AMR Patent Landscape Analysis</h3>
           </div>
-          <div style="flex:2;min-width:260px">
+          <div style="flex:1;min-width:240px">
             <p class="proj-desc" style="margin-bottom:.9rem">Led 5-member team under Prof. Amy Trappey (NTHU) to mine 1,000+ AMR patent documents with KeyBERT. Constructed domain ontology and applied S-curve + TFM analysis to map technology maturity and innovation gaps.</p>
             <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">KeyBERT</span><span class="proj-tag">Text Mining</span><span class="proj-tag">Ontology</span><span class="proj-tag">TFM</span></div>
           </div>
-          <div style="display:flex;align-items:flex-end;flex-shrink:0">
+          <div style="display:flex;align-items:center;flex-shrink:0">
             <a href="https://github.com/Ella0921" target="_blank" class="proj-link">View on GitHub <span class="proj-link-arr">→</span></a>
           </div>
         </div>
